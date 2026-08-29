@@ -121,7 +121,7 @@ export default function Packages({ onBook }: { onBook: (service: string) => void
                 </div>
               ))}
               <div className="hidden items-center py-3.5 text-xs font-light italic text-fog sm:flex">
-                * On-site travel within 40 km of Arani is complimentary.
+                * On-site travel within 40 km of Yavatmal is complimentary.
               </div>
             </div>
           </div>

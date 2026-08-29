@@ -46,7 +46,7 @@ export default function Academy({ onEnroll }: { onEnroll: (course: string) => vo
                 <em className="italic text-rose-600">Own your future.</em>
               </>
             }
-            sub="Small batches, live bridal models and lifetime mentorship. Our graduates now run studios across Arani, Vellore and Chennai — many booked their first client before the course even ended."
+            sub="Small batches, live bridal models and lifetime mentorship. Our graduates now run studios across Yavatmal, Washim and Amravati — many booked their first client before the course even ended."
           />
 
           <Reveal delay={200}>

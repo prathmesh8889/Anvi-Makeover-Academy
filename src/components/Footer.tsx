@@ -87,7 +87,7 @@ export function ContactFooter() {
             icon: <IconPin className="h-6 w-6" />,
             title: "Visit the studio",
             lines: [BIZ.address],
-            action: { label: "Open in Google Maps", href: "https://www.google.com/maps/search/?api=1&query=Arni+Road+Arani+Tamil+Nadu" },
+            action: { label: "Open in Google Maps", href: BIZ.mapUrl },
           },
           {
             icon: <IconPhone className="h-6 w-6" />,
@@ -123,6 +123,43 @@ export function ContactFooter() {
             </div>
           </Reveal>
         ))}
+      </div>
+
+      {/* live location map */}
+      <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[1.6rem] border border-gold-500/25 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+            <iframe
+              title="Anvi Makeover & Academy on Google Maps — Arni Road, Vaidya Nagar, Yavatmal"
+              src={BIZ.mapEmbed}
+              className="h-[320px] w-full sm:h-[400px]"
+              style={{ border: 0, filter: "grayscale(0.25) contrast(1.03)" }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-4 bg-gradient-to-t from-plum-950 via-plum-950/70 to-transparent p-5 pt-16 sm:p-6">
+              <div>
+                <p className="flex items-center gap-2 font-display text-xl italic text-ink">
+                  <IconPin className="h-5 w-5 text-gold-400" />
+                  Find us on Arni Road
+                </p>
+                <p className="mt-1 text-xs font-light text-mist">
+                  Near Himalaya Bajaj Showroom · Opp. MITHAS · Vaidya Nagar, Yavatmal 445001
+                </p>
+              </div>
+              <a
+                href={BIZ.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="pointer-events-auto group inline-flex items-center gap-2.5 rounded-full bg-gold-500 px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-plum-950 shadow-[0_10px_30px_rgba(212,162,78,0.4)] transition-all duration-300 hover:bg-gold-400"
+              >
+                Get Directions
+                <IconArrow className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </div>
+          </div>
+        </Reveal>
       </div>
 
       {/* footer bottom */}
@@ -170,7 +207,7 @@ export function ContactFooter() {
           </div>
         </div>
         <div className="border-t border-gold-500/10 py-5 text-center text-xs font-light text-fog">
-          © 2026 Anvi Makeover &amp; Academy · Arni Road, Arani · Crafted with
+          © 2026 Anvi Makeover &amp; Academy · Arni Road, Yavatmal · Crafted with
           <span className="mx-1 inline-block text-rose-500">♥</span> for every bride
         </div>
       </div>

@@ -48,7 +48,7 @@ export default function Portfolio() {
                 <em className="italic text-gold-400">151 brides</em> say “perfect”
               </>
             }
-            sub="A glimpse of real transformations from our Arani studio — muhurtham classics, reception dreams and backstage craft. Tap any look to view it close up."
+            sub="A glimpse of real transformations from our Yavatmal studio — muhurtham classics, reception dreams and backstage craft. Tap any look to view it close up."
           />
           <Reveal delay={150}>
             <div className="flex flex-wrap gap-2">

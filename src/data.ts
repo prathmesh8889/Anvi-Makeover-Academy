@@ -6,7 +6,12 @@ export const BIZ = {
   whatsapp: (msg: string) => `https://wa.me/919623048864?text=${encodeURIComponent(msg)}`,
   instagram: "https://www.instagram.com/",
   instaHandle: "@anvi.makeover",
-  address: "No. 12, Arni Road, Arani, Tiruvannamalai Dist., Tamil Nadu 632301",
+  address:
+    "Near Himalaya Bajaj Showroom, Opp. MITHAS, Arni Road, Vaidya Nagar, Yavatmal, Maharashtra 445001",
+  city: "Yavatmal, Maharashtra",
+  mapUrl: "https://maps.app.goo.gl/JBtG6eBCjLbowK2S6",
+  mapEmbed:
+    "https://www.google.com/maps?q=Anvi+Makeover+%26+Academy,+Arni+Road,+Vaidya+Nagar,+Yavatmal,+Maharashtra+445001&output=embed",
   hours: "Mon – Sun · 9:00 AM – 9:00 PM",
   rating: 5.0,
   reviews: 151,
@@ -271,7 +276,7 @@ export const REVIEWS: Review[] = [
     context: "Bridal + Family Makeovers",
     initials: "MI",
     quote:
-      "Booked the Imperial package — the whole team reached our Arani venue at 4 AM, calm and organised. My mother and sisters looked stunning too. Worth every rupee for the peace of mind alone.",
+      "Booked the Imperial package — the whole team reached our Yavatmal venue at 4 AM, calm and organised. My mother and sisters looked stunning too. Worth every rupee for the peace of mind alone.",
   },
   {
     name: "Kavya Prasad",

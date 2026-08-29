@@ -54,7 +54,7 @@ export default function Hero() {
                 5.0 · {BIZ.reviews} Google reviews
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-600/40 bg-rose-600/10 px-3.5 py-1.5 text-xs font-medium text-blush-300">
-                Arni Road · Arani
+                Arni Road · Yavatmal
               </span>
             </div>
           </Reveal>
@@ -121,7 +121,7 @@ export default function Hero() {
               </div>
               <p className="text-xs leading-relaxed text-fog">
                 Trusted by <span className="font-semibold text-gold-300">800+ brides</span> across
-                Arani, Vellore &amp; Tiruvannamalai —
+                Yavatmal, Washim &amp; Amravati —
                 <span className="text-mist"> every review a perfect five.</span>
               </p>
             </div>
