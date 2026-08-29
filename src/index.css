@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Jost", "Trebuchet MS", sans-serif;
+
+  --color-plum-950: #12050c;
+  --color-plum-900: #1d0a14;
+  --color-plum-850: #240e1a;
+  --color-plum-800: #2b1220;
+  --color-plum-700: #3c1a30;
+  --color-plum-600: #522544;
+
+  --color-ink: #f7e9e6;
+  --color-mist: #c2a0ac;
+  --color-fog: #8f6b7a;
+
+  --color-gold-200: #f3e2bd;
+  --color-gold-300: #edd3a0;
+  --color-gold-400: #e2bc77;
+  --color-gold-500: #d4a24e;
+  --color-gold-600: #b9852f;
+  --color-gold-700: #8f6420;
+
+  --color-blush-100: #fdf1ef;
+  --color-blush-200: #f9dce3;
+  --color-blush-300: #f3bcc9;
+  --color-blush-400: #e895ab;
+  --color-blush-500: #d97392;
+
+  --color-rose-500: #c25e77;
+  --color-rose-600: #a84460;
+  --color-rose-700: #7e2f47;
+
+  --color-paper: #f8e9e4;
+  --color-paper-deep: #f0dcd6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-plum-950);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-gold-500);
+  color: var(--color-plum-950);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-plum-900);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-gold-600), var(--color-rose-600));
+  border-radius: 8px;
+}
+
+/* ---------- film grain over everything ---------- */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* line-mask title reveal */
+.mask-line {
+  display: block;
+  overflow: hidden;
+}
+.mask-line > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mask-line.is-in > span {
+  transform: translateY(0);
+}
+
+/* ---------- keyframes ---------- */
+@keyframes kenburns {
+  0% {
+    transform: scale(1.06) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.17) translate(-1.5%, 2%);
+  }
+}
+.kenburns {
+  animation: kenburns 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.float-y {
+  animation: float-y 5s ease-in-out infinite;
+}
+.float-y-late {
+  animation: float-y 6s ease-in-out 1.2s infinite;
+}
+
+@keyframes word-in {
+  0% {
+    opacity: 0;
+    transform: translateY(0.55em) rotate(3deg);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+    filter: blur(0);
+  }
+}
+.word-in {
+  animation: word-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes ring-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(77, 203, 122, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(77, 203, 122, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(77, 203, 122, 0);
+  }
+}
+.ring-pulse {
+  animation: ring-pulse 2.4s ease-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.shimmer-gold {
+  background: linear-gradient(
+    100deg,
+    var(--color-gold-600) 20%,
+    var(--color-gold-300) 40%,
+    var(--color-gold-500) 60%,
+    var(--color-gold-600) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 5s linear infinite;
+}
+
+@keyframes glow-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(4%, -6%) scale(1.15);
+    opacity: 0.85;
+  }
+}
+.glow-drift {
+  animation: glow-drift 11s ease-in-out infinite;
+}
+
+/* ---------- helpers ---------- */
+.arch {
+  border-radius: 999px 999px 26px 26px;
+}
+
+.text-outline-gold {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212, 162, 78, 0.35);
+}
+
+.hairline {
+  background: linear-gradient(90deg, transparent, rgba(212, 162, 78, 0.5), transparent);
+  height: 1px;
+}
+
+.card-lift {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s, border-color 0.5s;
+}
+.card-lift:hover {
+  transform: translateY(-8px);
+}
+
+.dotted-plum {
+  background-image: radial-gradient(rgba(212, 162, 78, 0.22) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.dotted-rose {
+  background-image: radial-gradient(rgba(168, 68, 96, 0.18) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-gold-400);
+  outline-offset: 2px;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .mask-line > span {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .kenburns,
+  .marquee-track,
+  .spin-slow,
+  .float-y,
+  .float-y-late,
+  .word-in,
+  .ring-pulse,
+  .shimmer-gold,
+  .glow-drift {
+    animation: none !important;
+  }
+  .card-lift,
+  .card-lift:hover {
+    transition: none;
+    transform: none;
+  }
+}
